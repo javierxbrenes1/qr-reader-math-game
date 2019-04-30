@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "/qr-reader-math-game/precache-manifest.e024c86fd9ddbdb1320229d2f98a8ff0.js"
+  "/qr-reader-math-game/precache-manifest.ed9b3016a253d481c3af04b8478b238e.js"
 );
 
 self.addEventListener('message', (event) => {
