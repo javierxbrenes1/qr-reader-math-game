@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import Reader from './Reader';
 
-function App() {
+const App = () => {
+  const [value, setValue] = useState('');
+  const [active, setActive] = useState(false);
+
+  const defineValue = (data) =>{
+    if(data !== null){
+      setValue(data);
+      setActive(false);
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={{cursor:'pointer'}} onClick={() => setActive(oldAct => setActive(!oldAct))}>Leer Qr</h1>
+      {active ? <Reader setData={defineValue}/> : null}
+      <div>{value}</div>
     </div>
   );
 }

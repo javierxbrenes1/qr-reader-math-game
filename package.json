@@ -5,7 +5,9 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.0"
+    "react-qr-scanner": "0.0.8",
+    "react-scripts": "3.0.0",
+    "reactive-qr": "^0.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
