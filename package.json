@@ -2,17 +2,24 @@
   "name": "qr-reader-math-game",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://javierxbrenes1.github.io/qr-reader-math-game",
   "dependencies": {
+
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-qr-scanner": "0.0.8",
     "react-scripts": "3.0.0",
     "reactive-qr": "^0.1.6"
   },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

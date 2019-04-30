@@ -4,14 +4,21 @@ import QrReader from 'react-qr-scanner';
 const Reader = ({setData}) => {
  
 
-    return (<div>
-            <QrReader
-            delay={200}
-            style={{height: '240', width:'320'}}
-            onError={(err) => console.log(err)}
-            onScan={(dat) => setData(dat)}
-            />
-          </div>)
+    return (
+    <React.Fragment>
+        <div style={{width:'500px', height:'50vh', position: 'relative', margin: '0 auto'}}>
+            <div className="container"></div>
+                    <QrReader
+                    facingMode="rear"
+                    delay={200}
+                    onError={(err) => console.log(err)}
+                                style={{width:'100%', height:'100%'}}
+                    onScan={(dat) => setData(dat)}
+                    />
+                    </div>
+                    
+                    </React.Fragment>
+      )
 }
 
 
