@@ -11,7 +11,7 @@ const App = () => {
 var dataBase = FireBaseInit();
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Zone fireBaseDB={dataBase}/>
     </Router>
   );
