@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "326e34400a7d10a6bcfb7fcc4dae0405",
+    "revision": "879e787df81e2ae7ffa8e0879988eef4",
     "url": "/qr-reader-math-game/index.html"
   },
   {
-    "revision": "8e34f1326132b3be0427",
+    "revision": "bbc9c967fb561a8fa2fa",
     "url": "/qr-reader-math-game/static/css/main.55953661.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/qr-reader-math-game/static/js/2.57c42bc3.chunk.js"
   },
   {
-    "revision": "8e34f1326132b3be0427",
-    "url": "/qr-reader-math-game/static/js/main.c001889d.chunk.js"
+    "revision": "bbc9c967fb561a8fa2fa",
+    "url": "/qr-reader-math-game/static/js/main.70e123f1.chunk.js"
   },
   {
     "revision": "53afa16e0551ef8603ec",
