@@ -5,7 +5,7 @@ import QuestionHeader from './questionHeader';
 import Alert from './alert';
 import CardContainer from './cardContainer';
 const Question = ({match, fireBaseDB}) => {
-    const [questionsAnswered, setQuestionsAnswered] = useLocalStorage('questionsAnswered', []);
+    const [questionsAnswered] = useLocalStorage('questionsAnswered', []);
     const {params} = match;
     const result = (questionsAnswered.filter(r => r.group === params.group && r.ques === params.ques).length === 0);
 
