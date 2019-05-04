@@ -4,10 +4,12 @@
   "private": true,
   "homepage": "http://javierxbrenes1.github.io/qr-reader-math-game",
   "dependencies": {
-
+    "firebase": "^5.11.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-qr-scanner": "0.0.8",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
     "reactive-qr": "^0.1.6"
   },

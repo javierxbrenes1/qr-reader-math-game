@@ -6,7 +6,7 @@ const Reader = ({setData}) => {
 
     return (
     <React.Fragment>
-        <div style={{width:'500px', height:'50vh', position: 'relative', margin: '0 auto'}}>
+        <div style={{width:'500px', height:'30vh', position: 'relative', margin: '0 auto'}}>
             <div className="container"></div>
                     <QrReader
                     facingMode="rear"

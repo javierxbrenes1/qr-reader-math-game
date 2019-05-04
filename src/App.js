@@ -1,23 +1,19 @@
 import React,{useState} from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import Zone from './components/zone';
+import FireBaseInit from './components/fireBaseConfig';
+
 import './App.css';
-import Reader from './Reader';
+
 
 const App = () => {
-  const [value, setValue] = useState('');
-  const [active, setActive] = useState(false);
+  
+var dataBase = FireBaseInit();
 
-  const defineValue = (data) =>{
-    if(data !== null){
-      setValue(data);
-      setActive(false);
-    }
-  }
   return (
-    <div className="App">
-      <h1 style={{cursor:'pointer'}} onClick={() => setActive(oldAct => setActive(!oldAct))}>Leer Qr</h1>
-      {active ? <Reader setData={defineValue}/> : null}
-      <div>{value}</div>
-    </div>
+    <Router>
+      <Zone fireBaseDB={dataBase}/>
+    </Router>
   );
 }
 
