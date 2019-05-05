@@ -46,8 +46,8 @@ const QuestionHeader = ({params, fireBaseDB}) => {
                                     <Spinner />
                                 </div> 
                                 : question.failed 
-                                ? <Alert type="light" title="Ups.!" message="La pregunta no pudo ser encontrada." />  
-                                : <QuestionDetail { ...question } {...params}/> }
+                                ? <Alert type="light" title="Ups.! 🙄" message="La pregunta no pudo ser encontrada. 🤷" />  
+                                : <QuestionDetail { ...question } {...params} fireBaseDB={fireBaseDB}/> }
                 </CardContainer>);
 }
 

@@ -3,7 +3,7 @@ import QuestionOptions from './questionOptions';
 import Alert from './alert';
 import useLocalStorage from './hooks/useLocalStorage';
 
-const QuestionDetail = ({ quesAnswer,quesDes,quesOptions, group, ques }) => {
+const QuestionDetail = ({ quesAnswer,quesDes,quesOptions, group, ques, fireBaseDB }) => {
     const [questionsAnswered, setQuestionsAnswered] = useLocalStorage('questionsAnswered', [])
     const [answer, setAnswer] = useState({
         didAnswer: false, 
@@ -16,6 +16,16 @@ const QuestionDetail = ({ quesAnswer,quesDes,quesOptions, group, ques }) => {
             group, ques
         });
         setQuestionsAnswered(questionsAnswered);
+        const response = {
+            answer: value,
+            correctAnswer: quesAnswer,
+            isCorrect: value === quesAnswer,
+            quesId: ques
+        };
+        var key = fireBaseDB.ref().child(`/app/groupsResults/${group}`).push().key;
+        const update = {};
+        update[`/app/groupsResults/${group}/${key}`] = response;
+        fireBaseDB.ref().update(update);
         setAnswer({didAnswer: true, optionChecked: value});
     }
 

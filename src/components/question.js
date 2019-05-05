@@ -8,14 +8,10 @@ const Question = ({match, fireBaseDB}) => {
     const [questionsAnswered] = useLocalStorage('questionsAnswered', []);
     const {params} = match;
     const result = (questionsAnswered.filter(r => r.group === params.group && r.ques === params.ques).length === 0);
-
-
     if(result) return <QuestionHeader fireBaseDB={fireBaseDB} params={params}/>
     return (<CardContainer><Alert type="light" 
     title="Pregunta respondida 😝"
     message="Esta pregunta ya ha sido respondida." /></CardContainer>);
-
-
 }
 
 export default withRouter(Question);
