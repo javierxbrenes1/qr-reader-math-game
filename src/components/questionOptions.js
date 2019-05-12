@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import MathSymbolWrapper from './mathSymbolWrapper'
 
 const QuestionOptions = ({options, onClick}) => {
 const [optionChecked, setOption] = useState('');
@@ -14,11 +15,11 @@ const onClickButton = () => {
 }
 
     var comps = options.map(r => (<div key={r.optionId} className="ml-3 p-3">
-                                    <label className="form-check-label">
-                                        <input type="radio" className="form-check-input options" value={r.optionId} name="options" id={`option${r.optionId}`}  />
-                                        {
-                                            r.type === "text" ? <span>{r.value}</span> : null
-                                        }
+                                    <label className="form-check-label d-flex">
+                                        <input  type="radio" className="form-check-input options align-self-center" value={r.optionId} name="options" id={`option${r.optionId}`}  />
+                                        <div className="align-self-center" style={{textWeight: 'bold'}}>
+                                            { r.type === 'text' ? <span>{r.value}</span> : <MathSymbolWrapper value={r.value} /> }
+                                        </div>
                                     </label>
                                   </div>));
 

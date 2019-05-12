@@ -33,7 +33,7 @@ const Admin = ({fireBaseDB}) => {
             <div className="col-12">
             <div className="d-flex justify-content-center mt-5">
                 {
-                    loading || Object.entries(answers).length === 0 ? <Spinner /> : <AdminDetails questions={questions} answers={answers} />
+                    loading || answers === null || answers === undefined || Object.entries(answers).length === 0 ? <Spinner /> : <AdminDetails questions={questions} answers={answers} />
                 }
                 </div>
                 </div>

@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import QuestionOptions from './questionOptions';
 import Alert from './alert';
 import useLocalStorage from './hooks/useLocalStorage';
+import ReactHtmlParser from 'react-html-parser';
+import MathSymbolWrapper from './mathSymbolWrapper';
+import MathSymbolWrapperText from './mathSymbolWrapperText';
 
 const QuestionDetail = ({ quesAnswer,quesDes,quesOptions, group, ques, fireBaseDB }) => {
     const [questionsAnswered, setQuestionsAnswered] = useLocalStorage('questionsAnswered', [])
@@ -43,7 +46,17 @@ const QuestionDetail = ({ quesAnswer,quesDes,quesOptions, group, ques, fireBaseD
     return (
         <React.Fragment>
         <div className="card border-primary mb-3" style={{width: '35rem'}}>
-            <div className="card-header h3 text-center"><span role="img" aria-label="Thinker">🤔</span> {quesDes}</div>
+            <div className="card-header">
+                {ReactHtmlParser(quesDes, {transform: function(node, index) {
+                        if(node.type ==="tag" && node.name === "mathsymbolwrapper"){
+                            return <MathSymbolWrapper key={index} value={node.attribs['value']}/>
+                        }
+                        if(node.type === "tag" && node.name === "mathsymbolwrappertext" ){
+                            return <MathSymbolWrapperText key={index} value={node.attribs['value']} />
+                        }
+                    }
+                })}
+            </div>
             <div className="card-body">
                 <h4 className="card-title">Selecciona tu respuesta <span role="img" aria-label=" Check">✔️</span></h4>
                 <QuestionOptions options={quesOptions} onClick={onClickResponse}/>
