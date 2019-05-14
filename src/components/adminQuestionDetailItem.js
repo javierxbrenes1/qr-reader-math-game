@@ -9,7 +9,7 @@ import AdminPieInfo from './adminPieInfo';
 const AdminQuestionDetailItem = ({id,quesDes, answer, options, answers}) => {
     const optionsComp = useMemo(() => options.map((r, index) => <QuestionOptionItem key={index} question={r} withInput={false} p={1} ml={1}/>), []);
     return (
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-lg-4 col-md-6">
           <div className="card text-white bg-dark mb-3">
               <div className="card-header" style={{height: '290px', overflow:'auto' }}>
               <div>
