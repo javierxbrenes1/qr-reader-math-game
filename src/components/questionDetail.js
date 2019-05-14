@@ -1,33 +1,23 @@
 import React, {useState} from 'react';
 import QuestionOptions from './questionOptions';
 import Alert from './alert';
-import useLocalStorage from './hooks/useLocalStorage';
 import ReactHtmlParser from 'react-html-parser';
 import MathSymbolWrapper from './mathSymbolWrapper';
 import MathSymbolWrapperText from './mathSymbolWrapperText';
 
 const QuestionDetail = ({ quesAnswer,quesDes,quesOptions, group, ques, fireBaseDB }) => {
-    const [questionsAnswered, setQuestionsAnswered] = useLocalStorage('questionsAnswered', [])
     const [answer, setAnswer] = useState({
         didAnswer: false, 
         optionChecked: ''
     });
     
-
     const onClickResponse = (value) => {
-        questionsAnswered.push({
-            group, ques
-        });
-        setQuestionsAnswered(questionsAnswered);
         const response = {
-            answer: value,
-            correctAnswer: quesAnswer,
-            isCorrect: value === quesAnswer,
-            quesId: ques
+            response: value === quesAnswer ? 1 : 0,
         };
-        var key = fireBaseDB.ref().child(`/app/groupsResults/${group}`).push().key;
+        var key = fireBaseDB.ref().child(`/app/groupsResults/${group}/${ques}`).push().key;
         const update = {};
-        update[`/app/groupsResults/${group}/${key}`] = response;
+        update[`/app/groupsResults/${group}/${ques}/${key}`] = response;
         fireBaseDB.ref().update(update);
         setAnswer({didAnswer: true, optionChecked: value});
     }

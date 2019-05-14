@@ -1,8 +1,10 @@
 import React, {useState} from 'react'
-import MathSymbolWrapper from './mathSymbolWrapper'
+import QuestionOptionItem from './questionOptionItem';
+import Alert from './alert';
 
 const QuestionOptions = ({options, onClick}) => {
 const [optionChecked, setOption] = useState('');
+const [notOptionChecked, setNotOptionChecked] = useState(false);
 
 const onClickOption = (e) =>{
     if(e.target.classList.contains('options')){
@@ -11,17 +13,14 @@ const onClickOption = (e) =>{
 }
 
 const onClickButton = () => {
-    onClick(optionChecked);
+    if(optionChecked === ''){
+        setNotOptionChecked(true);
+    }else{
+        onClick(optionChecked);
+    }
 }
 
-    var comps = options.map(r => (<div key={r.optionId} className="ml-3 p-3">
-                                    <label className="form-check-label d-flex">
-                                        <input  type="radio" className="form-check-input options align-self-center" value={r.optionId} name="options" id={`option${r.optionId}`}  />
-                                        <div className="align-self-center" style={{textWeight: 'bold'}}>
-                                            { r.type === 'text' ? <span>{r.value}</span> : <MathSymbolWrapper value={r.value} /> }
-                                        </div>
-                                    </label>
-                                  </div>));
+  const comps = options.map(r => <QuestionOptionItem key={r.optionId} question={r} p={2}/>);
 
   return (
     <React.Fragment>
@@ -32,6 +31,7 @@ const onClickButton = () => {
         <div className="text-right">
             <input type="button" className="btn btn-primary btn-lg" value="Aceptar" onClick={onClickButton}/>
         </div>
+        {notOptionChecked ? <div className="mt-3"><Alert type="warning" title="No hay respuesta 🤨" message="Debes marcar al menos una (☝️) opción para continuar."/></div> : null}
     </React.Fragment>
   )
 }

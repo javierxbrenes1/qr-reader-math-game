@@ -9,7 +9,7 @@ const AdminDetails = ({questions, answers}) => {
     const groupElements = questionsKeys.map( r => {
         const obj = questions[r];
         return (<AdminGroupWrapper key={r} id={r}  desc={obj.desc}>
-                    <AdminQuestionDetail question={obj} anwserDetails={answers[r]} />
+                    <AdminQuestionDetail question={obj} answerDetails={answers[r]} />
                 </AdminGroupWrapper>);
     })
 
