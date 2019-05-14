@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/qr-reader-math-game/static/css/main.d14cb6a3.chunk.css",
-    "main.js": "/qr-reader-math-game/static/js/main.0c84a7cf.chunk.js",
-    "main.js.map": "/qr-reader-math-game/static/js/main.0c84a7cf.chunk.js.map",
+    "main.js": "/qr-reader-math-game/static/js/main.19c12553.chunk.js",
+    "main.js.map": "/qr-reader-math-game/static/js/main.19c12553.chunk.js.map",
     "runtime~main.js": "/qr-reader-math-game/static/js/runtime~main.26674e74.js",
     "runtime~main.js.map": "/qr-reader-math-game/static/js/runtime~main.26674e74.js.map",
-    "static/js/2.fec7985d.chunk.js": "/qr-reader-math-game/static/js/2.fec7985d.chunk.js",
-    "static/js/2.fec7985d.chunk.js.map": "/qr-reader-math-game/static/js/2.fec7985d.chunk.js.map",
+    "static/js/2.9e1595da.chunk.js": "/qr-reader-math-game/static/js/2.9e1595da.chunk.js",
+    "static/js/2.9e1595da.chunk.js.map": "/qr-reader-math-game/static/js/2.9e1595da.chunk.js.map",
     "index.html": "/qr-reader-math-game/index.html",
-    "precache-manifest.479758e6a48cbf5943151929a19ec6b4.js": "/qr-reader-math-game/precache-manifest.479758e6a48cbf5943151929a19ec6b4.js",
+    "precache-manifest.ed4ddd47c1475ac69ed418d2c477d8bb.js": "/qr-reader-math-game/precache-manifest.ed4ddd47c1475ac69ed418d2c477d8bb.js",
     "service-worker.js": "/qr-reader-math-game/service-worker.js",
     "static/css/main.d14cb6a3.chunk.css.map": "/qr-reader-math-game/static/css/main.d14cb6a3.chunk.css.map"
   }
