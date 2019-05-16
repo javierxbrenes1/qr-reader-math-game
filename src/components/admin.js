@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react'
 import Spinner from './spinner';
 import AdminDetails from './adminDetails';
+import ScrollUpButton from 'react-scroll-up-button';
 
 const Admin = ({fireBaseDB}) => {
         const [loading, setLoading] = useState(true);
@@ -20,24 +21,29 @@ const Admin = ({fireBaseDB}) => {
     groupsResultsRef.on('value', snapshot => {
         var obj = snapshot.val();
         setAnswers(obj);
-        //console.log(obj);
-        //var prueba = Array.from(Object.keys(obj), k => obj[k]);
-        //console.log(prueba);
     });
     setLoading(false);
    }, []);
 
+   const removeStadistics = groupId => {
+       const ref = fireBaseDB.ref(`/app/groupsResults/${groupId}`);
+       ref.remove();
+   }
+
   return (
-        <div className="container-fluid">
-            <div className="row">
-            <div className="col-12">
-            <div className="d-flex justify-content-center mt-5">
-                {
-                    loading || answers === null || answers === undefined || Object.entries(answers).length === 0 ? <Spinner /> : <AdminDetails questions={questions} answers={answers} />
-                }
-                </div>
+        <div>
+            <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                    <h1 className="display-4">Estadisticas</h1>
+                    <p className="lead">Preguntas, sus opciones y respuestas correctas, asi como un resumen del conocimiento de los estudiantes.</p>
                 </div>
             </div>
+            <div className="container">
+                    {
+                        loading || answers === null || answers === undefined || Object.entries(answers).length === 0 ? <Spinner /> : <AdminDetails questions={questions} answers={answers} removeStadistics={removeStadistics} />
+                    }
+            </div>
+            <ScrollUpButton />
         </div>
   )
 }

@@ -1,18 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useMemo, useState, useEffect} from 'react'
+import React, { useState} from 'react'
 import AdminQuestionDetailItem from './adminQuestionDetailItem';
-import orderBy from 'lodash/orderBy';
+import useGetQuestionsAsArray from './hooks/useGetQuestionsAsArray';
 import ReactPaginate from 'react-paginate';
 
-const useGetQuestionsAsArray = (question, tens) => {
-    const questionAsArray = useMemo(() => orderBy(Array.from(Object.keys(question).filter(r=> r !== 'desc'), 
-    k => ({...question[k], quesId: k, shortestId: parseInt(k.replace('ques',''))})), ['shortestId']), []);
-    const dataFiltered =  useMemo(() => questionAsArray.filter(r => {
-        const discr = parseInt((r.shortestId / 10) % 10);
-        return discr === tens;
-    }),[tens]);
-    return [questionAsArray.length, dataFiltered];
-}
+
 
 const AdminQuestionDetail = ({question, answerDetails}) => {
     const [tensDigit, setTensDigit] = useState(0);
@@ -30,9 +22,10 @@ const onChange = (data) => {
     setTensDigit(data.selected);
 }
 
-    return (<div className="d-flex flex-column container-fluid">
-                <div>
-                    <ReactPaginate  
+    return (<div className="w-100">
+             <div className="row">
+                <div className="col-12">
+                     <ReactPaginate  
                     previousLabel={'anterior'}
                     nextLabel={'siguiente'}
                     breakLabel={'...'}
@@ -43,10 +36,14 @@ const onChange = (data) => {
                     subContainerClassName={'pages pagination'}
                     activeClassName={'active'}
                         />
+                
                 </div>
+                </div>
+       
                 <div className="row">
                     {questionItems} 
-                </div>
+              </div>
+                
             </div>);
 }
 
