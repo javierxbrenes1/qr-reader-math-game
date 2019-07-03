@@ -11,10 +11,10 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
+importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/qr-reader-math-game/precache-manifest.5689524c2d2e18155c5e71415146813e.js"
+  "/qr-reader-math-game/precache-manifest.a8f365f7e7d6ef5fdea98ca167edf0cd.js"
 );
 
 self.addEventListener('message', (event) => {
